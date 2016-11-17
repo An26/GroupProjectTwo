@@ -6,21 +6,28 @@ var app = express();
 
 app.use(express.static(process.cwd() + './public'));
 
+// controllers
+var application_controller = require('./controllers/application_controller')
+
+// body-parser
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
-// override with POST having ?_method=DELETE
+
+// method-override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
+
+// handlebars
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
 	defaultLayout: 'main'
 }));
-
 app.set('view engine', 'handlebars');
 
 //what are our routes?
 // var routes = require('./controllers/cats_controller.js');
 // app.use('/', routes);
+app.use('/', application_controller);
 
-var port = 3000;
-app.listen(port);
+var PORT = process.env.PORT || 3000;
+app.listen(PORT);
