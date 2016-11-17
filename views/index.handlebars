@@ -4,7 +4,7 @@
 
   <div class="UserInfoDiv">
     <h4>User Info</h4>
-    <form class="UserInfo">
+    <form class="UserInfo" action="resume/user" method="POST">
       First name:
       <input type="text" name="firstName" id="firstName"><br>
       Last name:
@@ -20,13 +20,14 @@
       Stack Overflow:
       <input type="text" name="stackOverflowUrl" id="stackOverflowUrl"><br>
       GitHub Profile:
-      <input type="text" name="gitHubUrl" id="gitHubUrl"><br>   
+      <input type="text" name="gitHubUrl" id="gitHubUrl"><br>
+      <button type="submit">Next</button>   
     </form>
   </div>
 
   <div class="UserEducationDiv">
   <h4>Education</h4>
-    <form class="UserEducation">
+    <form class="UserEducation" action="resume/education" method="POST">
       School Name:
       <input type="text" name="schoolName" id="schoolName"><br>
       Location:
@@ -41,12 +42,13 @@
       <input type="text" name="gpa" id="gpa"><br>
       Honors:
       <input type="text" name="honors" id="honors"><br>
+      <button type="submit">Next</button>
     </form>
   </div>
 
   <div class="userWorkDiv">
     <h4>Work History</h4>
-    <form class="userWork">
+    <form class="userWork" action="resume/work" method="POST">
       Company Name: 
       <input type="text" name="companyName" id="companyName"><br>
       Location:
@@ -59,12 +61,13 @@
       <input type="text" name="responsibility" id="responsibility"><br>
       Duties:
       <input type="text" name="duties" id="duties"><br>
+      <button type="submit">Next</button>
     </form>
   </div>
 
   <div class="userProjectDiv">
     <h4>Projects/Hackathons</h4>
-    <form class="userProject">
+    <form class="userProject" action="resume/project" method="POST">
       ProjectName: 
       <input type="text" name="projectName" id="projectName"><br>
       Description:
@@ -73,6 +76,7 @@
       <input type="text" name="projectUrl" id="projectUrl"><br>
       Date:
       <input type="text" name="projectDate" id="projectDate"><br>
+      <button type="submit">Submit</button>
     </form>
   </div>
 

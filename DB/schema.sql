@@ -2,6 +2,7 @@ CREATE DATABASE resume_builder;
 USE resume_builder;
 CREATE TABLE user(	
 	id int NOT NULL AUTO_INCREMENT,
+	username varchar(255) NOT NULL,
 	name varchar(255) NOT NULL,
 	email varchar(255) NOT NULL,
 	phone varchar(12) NOT NULL,

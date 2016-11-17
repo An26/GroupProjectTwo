@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "todo",
-    "database": "resume",
+    "password": null,
+    "database": "resume_builder",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
