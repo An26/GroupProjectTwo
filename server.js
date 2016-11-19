@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var session = require('express-session');
 
 var app = express();
 
@@ -8,7 +9,7 @@ app.use(express.static('./public'))
 
 // controllers
 var application_controller = require('./controllers/application_controller');
-
+app.use(session({secret:'app',cookie:{maxAge:60000}}));
 // body-parser
 app.use(bodyParser.urlencoded({
 	extended: false

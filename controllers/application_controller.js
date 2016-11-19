@@ -9,10 +9,10 @@ router.get('/', function(req, res) {
     res.redirect('/login');
 });
 
-router.get('/register', function(req,res) {
+router.post('/register', function(req,res) {
 	//add user to database
 	req.session.registerUsername = req.body.registrarUsername;
-	req.sessopm.registerPassword = req.body.registerPassword;
+	req.session.registerPassword = req.body.registrarPassword;
 	models.user.findOne({where:{email:req.session.registerUsername}})
 	.then(function(existingUser){
 		if(existingUser){
@@ -24,7 +24,9 @@ router.get('/register', function(req,res) {
 			})
 		}
 	})
-	res.redirect('/login');
+	.then(function(newuser){
+		res.redirect('/login');
+	})
 	
 });
 
@@ -114,7 +116,7 @@ router.get('/resume/work', function(req,res) {
 		})
 	})
 	.then(function(project){
-		res.render('workHostiry');
+		res.render('workHistory');
 	})
 });
 
