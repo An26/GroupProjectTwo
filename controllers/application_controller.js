@@ -78,7 +78,7 @@ router.get('/resume/projects', function(req,res) {
 	 req.session.gpa = req.body.gpa;
 	 req.session.honors = req.body.honors;
 		//session variable username
-	models.user.findOne({where:{email:registerUsername}})
+	models.user.findOne({where:{email:req.session.registerUsername}})
 	.then(function(currentUser){
 		models.education.create({
 			userId:currentUser.id,
@@ -104,7 +104,7 @@ router.get('/resume/work', function(req,res) {
 	 req.session.url = req.body.projectUrl;
 	 req.session.date = req.body.projectDate;
 	//session variable username
-	models.user.findOne({where:{email:registerUsername}})
+	models.user.findOne({where:{email:req.session.registerUsername}})
 	.then(function(currentUser){
 		models.project.create({
 				userId: currentUser.id,
@@ -128,7 +128,7 @@ router.get('/resume/work', function(req,res) {
 	 req.session.responsibility = req.body.responsibility;
 	 req.session.duties = req.body.duties;
 	//session variable username
-	models.user.findOne({where:{email:registerUsername}})
+	models.user.findOne({where:{email:req.session.registerUsername}})
 	.then(function(currentUser){
 		models.work.create({
 			userId:currentUser.id,
