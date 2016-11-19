@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/An26/GroupProjectTwo#readme",
   "dependencies": {
-    "bcrypt": "^0.8.7",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
