@@ -32,7 +32,8 @@ router.get('/login', function(req,res) {
 	//query the database and authenticate the user
 	//if authenticated, redirect to user,
 	//if not, display error message using partial and stay on login
-	res.redirect('resume/user')
+	res.render('login');
+	//res.redirect('resume/user')
 });
 
 router.get('/resume/user', function(req, res) {
