@@ -1,85 +1,28 @@
-<div class="main-container">
-
-<div class="buildResume">
-
+<div class="ui container">
   <div class="UserInfoDiv">
     <h4>User Info</h4>
-    <form class="UserInfo" action="resume/user" method="POST">
-      First name:
-      <input type="text" name="firstName" id="firstName"><br>
-      Last name:
-      <input type="text" name="lastName" id="lastName"><br>
-      Address:
-      <input type="text" name="address" id="address"><br>
-      Email: 
-      <input type="text" name="email" id="email"><br>
+    <form class="UserInfo" action="resume/education" method="POST">
+      Name:
+      <input type="text" name="fullName" id="fullName"><br>
+      Street Address:
+      <input type="text" name="street" id="streetAddress"><br>
+      City, State, Zip:
+      <input type="text" name="rest" id="restAddress"><br>
       Phone Number:
       <input type="text" name="phoneNumber" id="phoneNumber"><br>
-      Linked In:
-      <input type="text" name="linkedInUrl" id="linkedInUrl"><br>
-      Stack Overflow:
-      <input type="text" name="stackOverflowUrl" id="stackOverflowUrl"><br>
+      Personal Summary:
+      <input type="text" name="summary" id="summary"><br>
       GitHub Profile:
       <input type="text" name="gitHubUrl" id="gitHubUrl"><br>
-      <button type="submit">Next</button>   
+      <!-- <button type="submit">Next</button>    -->
+      <!-- next button below -->
+      <div class="ui animated button" tabindex="0">
+        <div class="visible content">Next</div>
+        <div class="hidden content">
+          <i class="right arrow icon"></i>
+        </div>
+      </div>
+
     </form>
   </div>
-
-  <div class="UserEducationDiv">
-  <h4>Education</h4>
-    <form class="UserEducation" action="resume/education" method="POST">
-      School Name:
-      <input type="text" name="schoolName" id="schoolName"><br>
-      Location:
-      <input type="text" name="schoolLocation" id="schoolLocation"><br>
-      Major:
-      <input type="text" name="major" id="major"><br>
-      Degree:
-      <input type="text" name="degree" id="degree"><br>
-      Years Attended: 
-      <input type="text" name="years" id="years"><br>
-      GPA:
-      <input type="text" name="gpa" id="gpa"><br>
-      Honors:
-      <input type="text" name="honors" id="honors"><br>
-      <button type="submit">Next</button>
-    </form>
-  </div>
-
-  <div class="userWorkDiv">
-    <h4>Work History</h4>
-    <form class="userWork" action="resume/work" method="POST">
-      Company Name: 
-      <input type="text" name="companyName" id="companyName"><br>
-      Location:
-      <input type="text" name="companyLocation" id="companyLocation"><br>
-      Title:
-      <input type="text" name="title" id="title"><br>
-      Years Worked:
-      <input type="text" name="companyYears" id="companyYears"><br>
-      Responsibility Summary:
-      <input type="text" name="responsibility" id="responsibility"><br>
-      Duties:
-      <input type="text" name="duties" id="duties"><br>
-      <button type="submit">Next</button>
-    </form>
-  </div>
-
-  <div class="userProjectDiv">
-    <h4>Projects/Hackathons</h4>
-    <form class="userProject" action="resume/project" method="POST">
-      ProjectName: 
-      <input type="text" name="projectName" id="projectName"><br>
-      Description:
-      <input type="text" name="projectDescription" id="projectDescription"><br>
-      Url/Demo:
-      <input type="text" name="projectUrl" id="projectUrl"><br>
-      Date:
-      <input type="text" name="projectDate" id="projectDate"><br>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-</div>
-
 </div>
