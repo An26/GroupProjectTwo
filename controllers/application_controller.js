@@ -43,12 +43,12 @@ router.get('/resume/user', function(req, res) {
 
 router.get('/resume/education', function(req,res) {
 	//once the information is validated and next button is hit, render projects
-	var req.session.name = req.body.fullName;
-	var req.session.street = req.body.street;
-	var req.session.rest = req.body.rest;
-	var req.session.phoneNumber = req.body.phoneNumber;
-	var req.session.githubUrl = req.body.githubUrl;
-	var req.session.summary = req.body.summary;
+	 req.session.name = req.body.fullName;
+	 req.session.street = req.body.street;
+	 req.session.rest = req.body.rest;
+	 req.session.phoneNumber = req.body.phoneNumber;
+	 req.session.githubUrl = req.body.githubUrl;
+	 req.session.summary = req.body.summary;
 	//session variable username
 	models.user.findOne({where:{email:req.session.registerUsername}})
 	.then(function(currentUser){
@@ -69,13 +69,13 @@ router.get('/resume/education', function(req,res) {
 
 router.get('/resume/projects', function(req,res) {
 	//once the information is validated and next button is hit, render work
-	var req.session.schoolName = req.body.schoolName;
-	var req.session.schoolLocation = req.body.schoolLocation;
-	var req.session.major = req.body.major;
-	var req.session.degree = req.body.degree;
-	var req.session.schoolYears = req.body.years;
-	var req.session.gpa = req.body.gpa;
-	var req.session.honors = req.body.honors;
+	 req.session.schoolName = req.body.schoolName;
+	 req.session.schoolLocation = req.body.schoolLocation;
+	 req.session.major = req.body.major;
+	 req.session.degree = req.body.degree;
+	 req.session.schoolYears = req.body.years;
+	 req.session.gpa = req.body.gpa;
+	 req.session.honors = req.body.honors;
 		//session variable username
 	models.user.findOne({where:{email:registerUsername}})
 	.then(function(currentUser){
@@ -98,10 +98,10 @@ router.get('/resume/projects', function(req,res) {
 
 router.get('/resume/work', function(req,res) {
 	//once the information is validated and next button is hit, render resume preview
-	var req.session.projectName = req.body.projectName;
-	var req.session.description = req.body.description;
-	var req.session.url = req.body.projectUrl;
-	var req.session.date = req.body.projectDate;
+	 req.session.projectName = req.body.projectName;
+	 req.session.description = req.body.description;
+	 req.session.url = req.body.projectUrl;
+	 req.session.date = req.body.projectDate;
 	//session variable username
 	models.user.findOne({where:{email:registerUsername}})
 	.then(function(currentUser){
@@ -120,12 +120,12 @@ router.get('/resume/work', function(req,res) {
 
  router.get('/buildResume', function(req,res) {
 // once user hit download, run pdfkit with info above
-	var req.session.companyNmae = req.body.companyName;
-	var req.session.companyLocation = req.body.companyLocation;
-	var req.session.title = req.body.title;
-	var req.session.workYears = req.body.years;
-	var req.session.responsibility = req.body.responsibility;
-	var req.session.duties = req.body.duties;
+	 req.session.companyNmae = req.body.companyName;
+	 req.session.companyLocation = req.body.companyLocation;
+	 req.session.title = req.body.title;
+	 req.session.workYears = req.body.years;
+	 req.session.responsibility = req.body.responsibility;
+	 req.session.duties = req.body.duties;
 	//session variable username
 	models.user.findOne({where:{email:registerUsername}})
 	.then(function(currentUser){
