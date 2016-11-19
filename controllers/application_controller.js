@@ -37,7 +37,7 @@ router.get('/login', function(req,res) {
 
 router.get('/resume/user', function(req, res) {
 	//once the information is validated and next button is hit, render education
-	res.render('user');
+	res.render('index');
 
 })
 
