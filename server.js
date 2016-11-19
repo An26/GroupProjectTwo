@@ -4,7 +4,7 @@ var methodOverride = require('method-override');
 
 var app = express();
 
-app.use(express.static(process.cwd() + './public'));
+app.use(express.static('./public'))
 
 // controllers
 var application_controller = require('./controllers/application_controller');
@@ -23,6 +23,8 @@ app.engine('handlebars', exphbs({
 	defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
+
+
 
 //what are our routes?
 // var routes = require('./controllers/cats_controller.js');
