@@ -6,36 +6,11 @@ var pdf = require('pdfkit');
 //need to require pdfkit, and global variables for resume defined here
 
 router.get('/', function(req, res) {
-    res.redirect('/login');
-});
-
-router.post('/register', function(req,res) {
-	//add user to database
-	req.session.registerUsername = req.body.registrarUsername;
-	req.session.registerPassword = req.body.registrarPassword;
-	models.user.findOne({where:{email:req.session.registerUsername}})
-	.then(function(existingUser){
-		if(existingUser){
-		//user partial to send error message:'user name already existed, please try another username.'
-		} else {
-			models.user.create({
-				email:req.session.registerUsername,
-				password:req.session.registerPassword
-			})
-		}
-	})
-	.then(function(newuser){
-		res.redirect('/login');
-	})
-	
-});
-
-router.get('/login', function(req,res) {
-	//query the database and authenticate the user
-	//if authenticated, redirect to user,
-	//if not, display error message using partial and stay on login
-	res.render('login');
-	//res.redirect('resume/user')
+	if(req.session.loggedin) {
+		res.render('index');
+	} else {
+    	res.render('landing');
+	}
 });
 
 router.get('/resume/user', function(req, res) {
