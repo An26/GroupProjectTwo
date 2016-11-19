@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
     res.redirect('/login');
 });
 
-router.post('/register', function(req,res) {
+router.post('/signup', function(req,res) {
 	//add user to database
 	req.session.registerUsername = req.body.registrarUsername;
 	req.session.registerPassword = req.body.registrarPassword;
@@ -30,12 +30,20 @@ router.post('/register', function(req,res) {
 	
 });
 
+router.get('/signup', function(req,res) {
+	res.render('register');
+});
+
 router.get('/login', function(req,res) {
+	
+	res.render('login');
+});
+
+router.post('/signin',function(req,res){
 	//query the database and authenticate the user
 	//if authenticated, redirect to user,
 	//if not, display error message using partial and stay on login
-	res.render('login');
-	//res.redirect('resume/user')
+	res.redirect('resume/user');
 });
 
 router.get('/resume/user', function(req, res) {
@@ -44,7 +52,7 @@ router.get('/resume/user', function(req, res) {
 
 })
 
-router.get('/resume/education', function(req,res) {
+router.post('/education', function(req,res) {
 	//once the information is validated and next button is hit, render projects
 	 req.session.name = req.body.fullName;
 	 req.session.street = req.body.street;
@@ -64,13 +72,14 @@ router.get('/resume/education', function(req,res) {
 				summary:req.session.summary
 		})
 	})
-	.then(function(updatedUser){
-		res.render('education');
-	})
+		res.redirect('/resume/education');
 });
 
+router.get('/resume/education',function(req,res){
+	res.render('education');
+})
 
-router.get('/resume/projects', function(req,res) {
+router.post('/projects', function(req,res) {
 	//once the information is validated and next button is hit, render work
 	 req.session.schoolName = req.body.schoolName;
 	 req.session.schoolLocation = req.body.schoolLocation;
@@ -94,12 +103,15 @@ router.get('/resume/projects', function(req,res) {
 		})
 	})
 	.then(function(education){
-		res.render('projects');
+		res.redirect('/resume/projects');
 	})
 });
 
+router.get('/resume/projects',function(req,res){
+	res.render('projects');
+});
 
-router.get('/resume/work', function(req,res) {
+router.post('/work', function(req,res) {
 	//once the information is validated and next button is hit, render resume preview
 	 req.session.projectName = req.body.projectName;
 	 req.session.description = req.body.description;
@@ -116,12 +128,15 @@ router.get('/resume/work', function(req,res) {
 		})
 	})
 	.then(function(project){
-		res.render('workHistory');
+		res.redirect('/resume/work');
 	})
 });
 
+router.get('/resume/work',function(req,res){
+	res.render('workHistory');
+})
 
- router.get('/buildResume', function(req,res) {
+ router.post('/buildResume', function(req,res) {
 // once user hit download, run pdfkit with info above
 	 req.session.companyNmae = req.body.companyName;
 	 req.session.companyLocation = req.body.companyLocation;
@@ -143,9 +158,13 @@ router.get('/resume/work', function(req,res) {
 		})
 	})
 	.then(function(work){
-		res.render('preview');
+		res.redirect('/buildResume');
 	})
  });
+
+ router.get('/buildResume',function(req,res){
+	res.render('preview');
+})
 //generate pdf file using pdfkit
 
 
