@@ -22,7 +22,6 @@ h6 {
 
 .intro-header-login {
     padding-top: 50px; 
-     /*If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 30px;
     text-align: center;
     color: #f8f8f8;
@@ -66,6 +65,16 @@ h6 {
     width: 30%;
     display: inline;
     margin: 10px;
+}
+
+.UserInfoDiv {
+    padding-top: 50px; 
+    padding-bottom: 30px;
+    text-align: center;
+    color: #f8f8f8;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/buildRes.jpg) no-repeat center;
+    /*width: 100%;*/
+    background-size: cover;
 }
 
 @media(max-width:767px) {
