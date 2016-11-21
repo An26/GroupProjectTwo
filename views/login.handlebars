@@ -1,10 +1,52 @@
 {{#if e}}
     Error logging in: {{ e }}
 {{/if}}
-<form action="/signin" method="POST">
-    Email: <input type="text" name='email'><br />
-    Password: <input type="password" name='password'><br />
-    <button type="submit">Submit</button>
-    <hr>
-    <a href="/signup">Sign up for an account</a>
-</form>
+<a name="about"></a>
+<div class="intro-header-login">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>resMe</h1>
+                    <h3>We help help build your resume, so you don't have to alone.</h3>
+                    <hr class="intro-divider">
+                    <form action="/signin" method="POST">
+                    	<div class="list-inline">
+			                      Email: <input type="email" name='email' class='form-control' placeholder="email@someplace.com">
+			                      Password: <input type="password" name='password' class='form-control' placeholder="Password">
+                      </div>
+                      <div class="list-inline">
+                        <button type="submit" class="btn btn-default">Login</button>
+                        <a href="/signup"><span class="network-name">Sign up for an account</span></a>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</div>
+<!-- Page Content -->
+<a  name="services"></a>
+<div class="content-section-a">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">We help build your resume:</h2>
+                <p class="lead">Here is how we help you: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                <img class="img-responsive" src="/assets/images/ipad.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.content-section-a -->
+
+
+
+

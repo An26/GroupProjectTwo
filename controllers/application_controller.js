@@ -12,13 +12,11 @@ router.get('/', function(req, res) {
 	} else {
     	res.render('landing');
 	}
-
 });
 
 router.get('/resume/user', function(req, res) {
 	//once the information is validated and next button is hit, render education
 	res.render('index');
-
 })
 
 router.post('/education', function(req,res) {
