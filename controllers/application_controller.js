@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 	if(req.session.loggedin) {
 		res.render('template');
 	} else {
-    	res.redirect('/signup');
+    	res.redirect('/signin?e=1');
 	}
 });
 
