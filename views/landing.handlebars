@@ -1,3 +1,34 @@
- this is the landing page, no auth given, login <a href="/signin">Here</a> or <a href="/signup">Signup</a>
+<!-- THIS IS THE SIGN-UP/REGISTERR PAGE (WILL CONSOLIDATE NAMES TO VOID CONFUSION) -->
 
-put some awesome branding stuff
+<a name="about"></a>
+<div class="intro-header-signUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>resMe</h1>
+                    <h3>Start Today! - Sign Up Page -</h3>
+                    <hr class="intro-divider">
+                    <form action="/signin" method="POST">
+                    	<div class="list-inline">
+			                      Email: <input type="email" name='email' class='form-control' placeholder="email@someplace.com">
+			                      Password: <input type="password" name='password' class='form-control' placeholder="Password">
+                      </div>
+                      <div class="list-inline">
+                        <button type="submit" class="btn btn-default">Sign Up</button>
+                      </div>
+                      <div class='errorMessage'>
+                      	{{#each username}}
+							{{#unless this.password}}
+								{{> match}}
+							{{/unless}}
+						{{/each}}
+					  </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</div>
+

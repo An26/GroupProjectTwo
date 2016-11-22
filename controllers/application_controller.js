@@ -8,15 +8,15 @@ var pdf = require('pdfkit');
 router.get('/', function(req, res) {
 
 	if(req.session.loggedin) {
-		res.render('index');
+		res.render('template');
 	} else {
-    	res.render('landing');
+    	res.redirect('/signup');
 	}
 });
 
 router.get('/resume/user', function(req, res) {
 	//once the information is validated and next button is hit, render education
-	res.render('index');
+	res.render('user');
 })
 
 router.post('/education', function(req,res) {
@@ -103,7 +103,7 @@ router.get('/resume/work',function(req,res){
 	res.render('workHistory');
 })
 
- router.post('/buildResume', function(req,res) {
+ router.post('/preview', function(req,res) {
 // once user hit download, run pdfkit with info above
 	 req.session.companyNmae = req.body.companyName;
 	 req.session.companyLocation = req.body.companyLocation;
@@ -125,11 +125,11 @@ router.get('/resume/work',function(req,res){
 		})
 	})
 	.then(function(work){
-		res.redirect('/buildResume');
+		res.redirect('/preview');
 	})
  });
 
- router.get('/buildResume',function(req,res){
+ router.get('/preview',function(req,res){
 	res.render('preview');
 })
 //generate pdf file using pdfkit
