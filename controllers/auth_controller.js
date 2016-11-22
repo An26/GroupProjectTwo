@@ -68,13 +68,11 @@ router.post('/signup', function(req, res) {
     models.user.findAll({
         where: { email: req.body.email }
     }).then(function(users) {
-        console.log(users.length);
         if(users.length > 0) {
             res.send('User already exists!');
         } else {
             bcrypt.genSalt(10, function(err, salt) {
-                bcrypt.hash(req.body.password, salt, function(err, hash) {
-
+                bcrypt.hash(req.body.password, salt, null, function(err, hash) {
                     // save to database
                     models.user.create({
                         email: req.body.email,
