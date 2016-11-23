@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "fddx658",
+    "password": "teecup26",
     "database": "resume_builder",
     "host": "127.0.0.1",
     "dialect": "mysql"

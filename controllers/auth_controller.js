@@ -58,7 +58,7 @@ router.get('/signout', function(req, res) {
 
 
 router.get('/signup', function(req, res) {
-    res.render('landing');
+    res.render('signUp');
 });
 
 
