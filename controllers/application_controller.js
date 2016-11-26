@@ -3,6 +3,10 @@ var express = require('express');
 var router  = express.Router();
 var fs = require('fs');
 var pdf = require('pdfkit');
+var exphbs = require('express-handlebars');
+var pdf = require('html-pdf');
+var handlebars = require('handlebars');
+var fs = require('fs');
 //need to require pdfkit, and global variables for resume defined here
 
 router.get('/', function(req, res) {
@@ -129,11 +133,43 @@ router.get('/resume/work',function(req,res){
 	})
  });
 
- router.get('/preview',function(req,res){
-	res.render('preview');
+//  router.get('/preview',function(req,res){
+// 	res.render('preview');
+// })
+// //generate pdf file using pdfkit
+
+ router.get('/preview/:id',function(req,res){
+
+	var template = 'resume' + req.params.id;
+
+	res.render(template);
 })
 //generate pdf file using pdfkit
 
+router.get('/preview/:id/download', function(req, res) {
+	
+	var template = 'views/resume' + req.params.id + '.handlebars';
+
+	fs.readFile(template, 'utf8', function (err, data) {
+    	if(err) throw err;
+    	var html = '<html><body>' + data + '</body></html>';
+
+    	var testdata = { foo: 'bar', };
+    	var template = handlebars.compile(html);
+
+    	var finalhtml = template(testdata);
+
+		console.log(finalhtml);
+
+		var filename = 'myresume.pdf';
+
+		res.setHeader('Content-disposition', 'attachment; filename=' + filename);
+		res.setHeader('Content-type', 'application/pdf');
+		pdf.create(finalhtml).toStream(function(err, stream){
+			stream.pipe(res);
+		});
+	});
+})
 
 
 module.exports = router
