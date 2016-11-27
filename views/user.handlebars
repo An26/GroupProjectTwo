@@ -17,5 +17,27 @@
       <input type="text" name="gitHubUrl" id="gitHubUrl" class='form-control'><br>
      <button type="submit" class="btn btn-default">Next</button>
      </form>
+     <!-- Loading Bar -->
+     <br>
+     <br>
+      <div class="loadingBar row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <div class="progress">
+            <div class="dynamicBarHere">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>  
+      <!-- End of loading bar -->
   </div>
 </div>
+
+
+<script type="text/javascript">
+    var progressBar = $("<div class='progress-bar progress-bar-success progress-bar-striped active' role='progressbar' aria-valuemax='100'>").attr('style', 'width:' + newval + '%').html(newval + '% Complete');
+
+    $('.dynamicBarHere').append(progressBar);
+
+</script>
