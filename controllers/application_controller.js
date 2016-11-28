@@ -84,10 +84,7 @@ router.post('/projects', function(req,res) {
 	.then(function(education){
 		res.redirect('/resume/projects');
 	})
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> master
+
 });
 
 router.get('/resume/projects',function(req,res){
