@@ -1,8 +1,13 @@
 {
   "development": {
     "username": "root",
+<<<<<<< Updated upstream
     "password": null,
     "database": "database_development",
+=======
+    "password": "fddx658",
+    "database": "resume_builder",
+>>>>>>> Stashed changes
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
