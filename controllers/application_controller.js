@@ -3,9 +3,6 @@ var express = require('express');
 var router  = express.Router();
 
 router.get('/', function(req, res) {
-<<<<<<< Updated upstream
-    res.render('index');
-=======
 
 	if(req.session.loggedin) {
 		res.render('template');
