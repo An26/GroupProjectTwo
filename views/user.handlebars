@@ -1,0 +1,43 @@
+<!-- this is the build USER INFO page (WILL RENAME FILE NAME TO BETTER SUIT PAGE CONTENT) -->
+<div class="user-container">
+  <div class="enterInfoDivs enterUser">
+    <h4>User Info</h4>
+    <form class="UserInfo" action="/education" method="POST">
+      Name:
+      <input type="text" name="fullName" id="fullName" class='form-control'><br>
+      Street Address:
+      <input type="text" name="street" id="streetAddress" class='form-control'><br>
+      City, State, Zip:
+      <input type="text" name="rest" id="restAddress" class='form-control'><br>
+      Phone Number:
+      <input type="text" name="phoneNumber" id="phoneNumber" class='form-control'><br>
+      Personal Summary:
+      <input type="text" name="summary" id="summary" class='form-control'><br>
+      GitHub Profile:
+      <input type="text" name="gitHubUrl" id="gitHubUrl" class='form-control'><br>
+     <button type="submit" class="btn btn-default">Next</button>
+     </form>
+     <!-- Loading Bar -->
+     <br>
+     <br>
+      <div class="loadingBar row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <div class="progress">
+            <div class="dynamicBarHere">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>  
+      <!-- End of loading bar -->
+  </div>
+</div>
+
+
+<script type="text/javascript">
+    var progressBar = $("<div class='progress-bar progress-bar-success progress-bar-striped active' role='progressbar' aria-valuemax='100'>").attr('style', 'width:' + newval + '%').html(newval + '% Complete');
+
+    $('.dynamicBarHere').append(progressBar);
+
+</script>

@@ -1,0 +1,24 @@
+<div class="user-container">
+  <div class="enterInfoDivs enterWork">
+    <h4>Work History</h4>
+    <form class="userWork" action="/preview" method="POST">
+      Company Name: 
+      <input type="text" name="companyName" id="companyName" class='form-control'><br>
+      Location:
+      <input type="text" name="companyLocation" id="companyLocation" class='form-control'><br>
+      Title:
+      <input type="text" name="title" id="title" class='form-control'><br>
+      Years Worked:
+      <input type="text" name="companyYears" id="companyYears" class='form-control'><br>
+      Responsibility Summary:
+      <input type="text" name="responsibility" id="responsibility" class='form-control'><br>
+      Duties:
+      <input type="text" name="duties" id="duties" class='form-control'><br>
+     <button type="submit" class="btn btn-default">Next</button>
+    </form>
+    <br>
+    <form action="/resume/work">
+    <button type="submit" class="btn btn-default">Add Another</button>
+    </form>
+  </div>
+</div>

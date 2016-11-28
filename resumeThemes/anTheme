@@ -1,0 +1,88 @@
+var fs = require('fs');
+var inquirer = require('inquirer');
+var pdf = require('pdfkit');
+
+var name, address, phone, email;
+
+inquirer.prompt([
+  {
+    name: 'name',
+    message: 'Name'
+  },
+  {
+    name: 'address',
+    message: 'Address',
+  },
+  {
+    name: 'phone',
+    message: 'Phone'
+  },
+  {
+    name: 'email',
+    message: 'Email'
+  },
+  {
+    name: 'summary',
+    message: 'Summary'
+  },
+  {
+    name: 'education',
+    message: 'Highest Eduction'
+  },
+  {
+    name: 'major',
+    message: 'Major'
+  },
+  {
+    name: 'gpa',
+    message: 'GPA'
+  },
+  {
+    name: 'years',
+    message: 'Years attended'
+  },
+  {
+    name: 'company',
+    message: 'Company'
+  },
+  {
+    name: 'title',
+    message: 'Title'
+  },
+  {
+    name: 'workYears',
+    message: 'Work years'
+  },
+  {
+    name: 'responsiblities',
+    message: 'Responsiblities'
+  }
+]).then(makeDoc);
+
+function makeDoc(answer) {
+  doc = new pdf;
+
+  doc.pipe(fs.createWriteStream(process.argv[2]));
+
+  doc.text('Name: ' + answer.name, {align: 'right'});
+  doc.text('Address: ' + answer.address, {align: 'right'});
+  doc.text('Phone: ' + answer.phone, {align: 'right'});
+  doc.text('Email: ' + answer.email, {align: 'right'});
+  doc.moveDown();
+
+  doc.text('Summary', {underline: true});
+  doc.text(answer.summary);
+  doc.moveDown();
+
+  doc.text('Education', {underline: true});
+  doc.text(answer.education + ' (' + answer.years + ')');
+  doc.text(answer.major + ' ' + answer.gpa);
+  doc.moveDown();
+
+  doc.text('Work Experience', {underline: true});
+  doc.text(answer.company + ' ' + answer.workYears);
+  doc.text(answer.title);
+  doc.text(answer.responsiblities)
+
+  doc.end();
+}
