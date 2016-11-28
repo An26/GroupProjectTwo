@@ -2,17 +2,18 @@ var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
 var fs = require('fs');
-var pdf = require('pdfkit');
 var exphbs = require('express-handlebars');
 var pdf = require('html-pdf');
 var handlebars = require('handlebars');
 var fs = require('fs');
-//need to require pdfkit, and global variables for resume defined here
+var userEmail = '';
+
 
 router.get('/', function(req, res) {
 
 	if(req.session.loggedin) {
 		res.render('template');
+		userEmail = req.session.email;
 	} else {
     	res.redirect('/signin?e=1');
 	}
@@ -40,15 +41,15 @@ router.post('/education', function(req,res) {
 	 req.session.githubUrl = req.body.githubUrl;
 	 req.session.summary = req.body.summary;
 	//session variable username
-	models.user.findOne({where:{email:req.session.registerUsername}})
+	models.user.findOne({where:{email:userEmail}})
 	.then(function(currentUser){
 		currentUser.update({
-				name:req.session.name,
-				phone:req.session.phoneNumber,
-				street:req.session.street,
-				rest:req.session.rest,
-				github:req.session.githubUrl,
-				summary:req.session.summary
+				name:req.body.fullName,
+				phone:req.body.phoneNumber,
+				street:req.body.street,
+				rest:req.body.rest,
+				github:req.body.gitHubUrl,
+				summary:req.body.summary
 		})
 	})
 		res.redirect('/resume/education');
@@ -68,20 +69,22 @@ router.post('/projects', function(req,res) {
 	 req.session.gpa = req.body.gpa;
 	 req.session.honors = req.body.honors;
 		//session variable username
-	models.user.findOne({where:{email:req.session.registerUsername}})
+	models.user.findOne({where:{email:userEmail}})
 	.then(function(currentUser){
 		models.education.create({
-			userId:currentUser.id,
-			schoolName:req.session.schoolName,
-			location:req.session.schoolLocation,
-			major:req.session.major,
-			degree:req.session.degree,
-			years:req.session.schoolYears,
-			gpa:req.session.gpa,
-			honors:req.session.honors
+			schoolName:req.body.schoolName,
+			location:req.body.schoolLocation,
+			major:req.body.major,
+			degree:req.body.degree,
+			years:req.body.years,
+			GPA:req.body.gpa,
+			honors:req.body.honors
+		})
+		.then(function(education){
+			currentUser.setEducation(education);
 		})
 	})
-	.then(function(education){
+	.then(function(result){
 		res.redirect('/resume/projects');
 	})
 
@@ -98,16 +101,19 @@ router.post('/work', function(req,res) {
 	 req.session.url = req.body.projectUrl;
 	 req.session.date = req.body.projectDate;
 	//session variable username
-	models.user.findOne({where:{email:req.session.registerUsername}})
+	models.user.findOne({where:{email:userEmail}})
 	.then(function(currentUser){
 		models.project.create({
-				userId: currentUser.id,
-				projectName: req.session.projectName,
-				url:req.session.url,
-				dates:req.session.date
+				projectName: req.body.projectName,
+				url:req.body.projectUrl,
+				dates:req.body.projectDate,
+				description:req.body.projectDescription
+		})
+		.then(function(project){
+			currentUser.setProject(project);
 		})
 	})
-	.then(function(project){
+	.then(function(result){
 		res.redirect('/resume/work');
 	})
 });
@@ -121,31 +127,28 @@ router.get('/resume/work',function(req,res){
 	 req.session.companyNmae = req.body.companyName;
 	 req.session.companyLocation = req.body.companyLocation;
 	 req.session.title = req.body.title;
-	 req.session.workYears = req.body.years;
+	 req.session.workYears = req.body.companyYears;
 	 req.session.responsibility = req.body.responsibility;
 	 req.session.duties = req.body.duties;
 	//session variable username
-	models.user.findOne({where:{email:req.session.registerUsername}})
+	models.user.findOne({where:{email:userEmail}})
 	.then(function(currentUser){
 		models.work.create({
-			userId:currentUser.id,
-			companyName:req.session.companyName,
-			location:req.session.companyLocation,
-			title:req.session.title,
-			years:req.session.workYears,
-			responsibilities:req.session.responsibility,
-			duties:req.session.duties
+			companyName:req.body.companyName,
+			location:req.body.companyLocation,
+			title:req.body.title,
+			years:req.body.companyYears,
+			responsibilities:req.body.responsibility,
+			duties:req.body.duties
+		})
+		.then(function(work){
+			currentUser.setWork(work);
 		})
 	})
-	.then(function(work){
+	.then(function(result){
 		res.redirect('/preview');
 	})
  });
-
-//  router.get('/preview',function(req,res){
-// 	res.render('preview');
-// })
-// //generate pdf file using pdfkit
 
  router.get('/preview/:id',function(req,res){
 
@@ -181,4 +184,4 @@ router.get('/preview/:id/download', function(req, res) {
 })
 
 
-module.exports = router
+module.exports = router;
