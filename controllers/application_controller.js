@@ -18,6 +18,14 @@ router.get('/', function(req, res) {
 	}
 });
 
+router.post('/user/:template',function(req,res){
+	//get the template information
+	req.session.template = req.params.template;
+	console.log('using template '+req.session.template);
+	res.redirect('/resume/user');
+})
+
+
 router.get('/resume/user', function(req, res) {
 	//once the information is validated and next button is hit, render education
 	res.render('user');
@@ -76,6 +84,10 @@ router.post('/projects', function(req,res) {
 	.then(function(education){
 		res.redirect('/resume/projects');
 	})
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+=======
+>>>>>>> master
 });
 
 router.get('/resume/projects',function(req,res){
