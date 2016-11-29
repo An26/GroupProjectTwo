@@ -8,6 +8,10 @@ var handlebars = require('handlebars');
 var fs = require('fs');
 var userEmail = '';
 var template = '';
+var userData = {};
+var educationData = {};
+var workData = {};
+var projectData = {};
 
 
 router.get('/', function(req, res) {
@@ -44,7 +48,8 @@ router.post('/education', function(req,res) {
 				street:req.body.street,
 				rest:req.body.rest,
 				github:req.body.gitHubUrl,
-				summary:req.body.summary
+				summary:req.body.summary,
+				skills:req.body.skills
 		})
 	})
 		res.redirect('/resume/education');
@@ -133,18 +138,36 @@ router.get('/resume/work',function(req,res){
 
 router.get('/preview/1',function(req,res){
 	//jquery dynamically change the html
-	var path = process.cwd()+'/htmltopdf/template1.html'
-	res.sendFile(path);
-});
+	var userID = 0;
+	models.user.findOne({where:{email:userEmail}})
+	.then(function(user){
+	userData = user;
+	userID = user.id;
+	})
+		.then(function(result){
+		models.education.findAll({where:{userId:userID}})
+		})
+		.then(function(education){
+			models.work.findAll({where:{userId:userID}})
+			educationData = education;
+			})
+			.then(function(work){
+				models.project.findAll({where:{userId:userID}})
+				workData = work;
+			})
+				.then(function(project){
+					projectData = project;
+					var data = {user:userData,education:educationData,project:projectData,work:workData}
+					res.render('resume1',data);
+			})
+	})
+
 router.get('/preview/2',function(req,res){
-	//jquery dynamically change the html
-	var path = process.cwd()+'/htmltopdf/template2.html'
-	res.sendFile(path);
+	res.render(resume2);
 });
  router.get('/preview/3',function(req,res){
  	//jquery dynamically change the html
-	var path = process.cwd()+'/htmltopdf/template3.html'
-	res.sendFile(path);
+	res.render(resume3);
 });
 
 router.get('/preview/:id/download', function(req, res) {

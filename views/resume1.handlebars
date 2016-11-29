@@ -1,5 +1,113 @@
-<h1>This is my awesome resume</h1>
 
-<h2>I have cool work experience {{foo}}</h2>
+<title>TEMPLATE1</title>
 
-<p>Please hire me!!</p>
+<meta name="viewport" content="width=device-width"/>
+<meta name="description" content="Templte1."/>
+<meta charset="UTF-8"> 
+
+<link href='assets/css/resume1.css' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+
+<body id="top">
+<div id="cv" class="instaFade">
+	<div class="mainDetails">
+		<div id="headshot" class="quickFade">
+			
+		</div>
+		
+		<div id="name">
+		{{#each user}}
+			<h1 class="quickFade delayTwo"> {{this.name}} </h1>
+			{{/each}}
+		</div>
+		<div id="contactDetails" class="quickFade delayFour">
+		{{#each user}}
+			<ul>
+				<li>{{this.email}} </li>
+				<li>{{this.github}} </li>
+				<li>{{this.phone}}</li>
+				<li>{{this.street}} {{this.rest}}</li>
+			</ul>
+			{{/each}}
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="mainArea" class="quickFade delayFive">
+		<section>
+			<article>
+				<div class="sectionTitle">
+					<h1>Summary</h1>
+				</div>
+				
+				<div class="sectionContent">
+				{{#each user}}
+					<p>{{this.summary}} </p>
+					{{/each}}
+				</div>
+			</article>
+			<div class="clear"></div>
+		</section>
+		
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>Work Experience</h1>
+			</div>
+			
+			<div class="sectionContent">
+			{{#each work}}
+				<article>
+					<h2>{{this.title}} at {{this.companyName}}</h2>
+					<p class="subDetails">{{this.years}}</p>
+					<p>{{this.responsibilities}} </p>
+					<p>{{this.duties}}</p>
+				</article>
+			{{/each}}
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>Key Skills</h1>
+			</div>
+			
+			<div class="sectionContent">
+			{{#each user}}
+				
+					{{this.skills}}
+				
+				{{/each}}
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>Education</h1>
+			</div>
+			
+			<div class="sectionContent">
+			{{#each education}}
+				<article>
+					<h2>{{this.schoolName}}</h2>
+					<p class="subDetails">{{this.location}} {{this.years}}</p>
+					<p class="subDetails">{{this.major}} {{this.degree}} {{this.GPA}}</p>
+					<p>{{this.honors}}</p>
+				</article>
+				{{/each}}
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+	</div>
+</div>
