@@ -102,20 +102,20 @@ router.post('/work', function(req,res) {
 	 req.session.date = req.body.projectDate;
 	//session variable username
 	models.user.findOne({where:{email:userEmail}})
-	.then(function(currentUser){
-		models.project.create({
+		.then(function(currentUser){
+			models.project.create({
 				projectName: req.body.projectName,
 				url:req.body.projectUrl,
 				dates:req.body.projectDate,
 				description:req.body.projectDescription
+			})
+			.then(function(project){
+				currentUser.setProject(project);
+			})
 		})
-		.then(function(project){
-			currentUser.setProject(project);
+		.then(function(result){
+			res.redirect('/resume/work');
 		})
-	})
-	.then(function(result){
-		res.redirect('/resume/work');
-	})
 });
 
 router.get('/resume/work',function(req,res){
@@ -124,7 +124,7 @@ router.get('/resume/work',function(req,res){
 
  router.post('/preview', function(req,res) {
 // once user hit download, run pdfkit with info above
-	 req.session.companyNmae = req.body.companyName;
+	 req.session.companyName = req.body.companyName;
 	 req.session.companyLocation = req.body.companyLocation;
 	 req.session.title = req.body.title;
 	 req.session.workYears = req.body.companyYears;
@@ -146,7 +146,15 @@ router.get('/resume/work',function(req,res){
 		})
 	})
 	.then(function(result){
-		res.redirect('/preview');
+		if(req.session.template === 1) {
+			res.redirect('/preview/1');
+		}
+		if(req.session.template === 2) {
+			res.redirect('/preview/2');
+		}
+		if(req.session.template === 3) {
+			res.redirect('/preview/3');
+		}
 	})
  });
 
@@ -156,7 +164,6 @@ router.get('/resume/work',function(req,res){
 
 	res.render(template);
 })
-//generate pdf file using pdfkit
 
 router.get('/preview/:id/download', function(req, res) {
 	
