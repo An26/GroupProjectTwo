@@ -7,14 +7,14 @@ var pdf = require('html-pdf');
 var handlebars = require('handlebars');
 var fs = require('fs');
 var userEmail = '';
+var template = '';
 
 
 router.get('/', function(req, res) {
-
 	if(req.session.loggedin) {
-		var info = req.body.email //email is undefined
-		console.log("this one!! " + info); //testing purposes -an
-		res.render('template', {loggedin: info} );
+		var info = req.session.email;
+		console.log('THIS!', info);
+		res.render('template', {loggedin: info});
 	} else {
     	res.redirect('/signin?e=1');
 	}
@@ -22,8 +22,8 @@ router.get('/', function(req, res) {
 
 router.post('/user/:template',function(req,res){
 	//get the template information
-	req.session.template = req.params.template;
-	console.log('using template ' + req.session.template);
+	template = req.params.template;
+	console.log('using template '+template);
 	res.redirect('/resume/user');
 })
 
@@ -35,12 +35,6 @@ router.get('/resume/user', function(req, res) {
 
 router.post('/education', function(req,res) {
 	//once the information is validated and next button is hit, render projects
-	 req.session.name = req.body.fullName;
-	 req.session.street = req.body.street;
-	 req.session.rest = req.body.rest;
-	 req.session.phoneNumber = req.body.phoneNumber;
-	 req.session.githubUrl = req.body.githubUrl;
-	 req.session.summary = req.body.summary;
 	//session variable username
 	models.user.findOne({where:{email:userEmail}})
 	.then(function(currentUser){
@@ -62,13 +56,6 @@ router.get('/resume/education',function(req,res){
 
 router.post('/projects', function(req,res) {
 	//once the information is validated and next button is hit, render work
-	 req.session.schoolName = req.body.schoolName;
-	 req.session.schoolLocation = req.body.schoolLocation;
-	 req.session.major = req.body.major;
-	 req.session.degree = req.body.degree;
-	 req.session.schoolYears = req.body.years;
-	 req.session.gpa = req.body.gpa;
-	 req.session.honors = req.body.honors;
 		//session variable username
 	models.user.findOne({where:{email:userEmail}})
 	.then(function(currentUser){
@@ -79,10 +66,8 @@ router.post('/projects', function(req,res) {
 			degree:req.body.degree,
 			years:req.body.years,
 			GPA:req.body.gpa,
-			honors:req.body.honors
-		})
-		.then(function(education){
-			currentUser.setEducation(education);
+			honors:req.body.honors,
+			userId:currentUser.id
 		})
 	})
 	.then(function(result){
@@ -96,11 +81,7 @@ router.get('/resume/projects',function(req,res){
 });
 
 router.post('/work', function(req,res) {
-	//once the information is validated and next button is hit, render resume preview
-	 req.session.projectName = req.body.projectName;
-	 req.session.description = req.body.description;
-	 req.session.url = req.body.projectUrl;
-	 req.session.date = req.body.projectDate;
+	//once the information is validated and next button is hit, render resume previe
 	//session variable username
 	models.user.findOne({where:{email:userEmail}})
 		.then(function(currentUser){
@@ -108,10 +89,8 @@ router.post('/work', function(req,res) {
 				projectName: req.body.projectName,
 				url:req.body.projectUrl,
 				dates:req.body.projectDate,
-				description:req.body.projectDescription
-			})
-			.then(function(project){
-				currentUser.setProject(project);
+				description:req.body.projectDescription,
+				userId:currentUser.id
 			})
 		})
 		.then(function(result){
@@ -125,12 +104,6 @@ router.get('/resume/work',function(req,res){
 
  router.post('/preview', function(req,res) {
 // once user hit download, run pdfkit with info above
-	 req.session.companyName = req.body.companyName;
-	 req.session.companyLocation = req.body.companyLocation;
-	 req.session.title = req.body.title;
-	 req.session.workYears = req.body.companyYears;
-	 req.session.responsibility = req.body.responsibility;
-	 req.session.duties = req.body.duties;
 	//session variable username
 	models.user.findOne({where:{email:userEmail}})
 	.then(function(currentUser){
@@ -140,31 +113,39 @@ router.get('/resume/work',function(req,res){
 			title:req.body.title,
 			years:req.body.companyYears,
 			responsibilities:req.body.responsibility,
-			duties:req.body.duties
-		})
-		.then(function(work){
-			currentUser.setWork(work);
+			duties:req.body.duties,
+			userId:currentUser.id
 		})
 	})
 	.then(function(result){
-		if(req.session.template === 1) {
+		console.log(template);
+		if(template === '1') {
 			res.redirect('/preview/1');
 		}
-		if(req.session.template === 2) {
+		if(template === '2') {
 			res.redirect('/preview/2');
 		}
-		if(req.session.template === 3) {
+		if(template === '3') {
 			res.redirect('/preview/3');
 		}
 	})
  });
 
- router.get('/preview/:id',function(req,res){
-
-	var template = 'resume' + req.params.id;
-
-	res.render('preview');
-})
+router.get('/preview/1',function(req,res){
+	//jquery dynamically change the html
+	var path = process.cwd()+'/htmltopdf/template1.html'
+	res.sendFile(path);
+});
+router.get('/preview/2',function(req,res){
+	//jquery dynamically change the html
+	var path = process.cwd()+'/htmltopdf/template2.html'
+	res.sendFile(path);
+});
+ router.get('/preview/3',function(req,res){
+ 	//jquery dynamically change the html
+	var path = process.cwd()+'/htmltopdf/template3.html'
+	res.sendFile(path);
+});
 
 router.get('/preview/:id/download', function(req, res) {
 	
