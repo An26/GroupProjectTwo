@@ -1,40 +1,19 @@
-
-<title>TEMPLATE1</title>
-
-<meta name="viewport" content="width=device-width"/>
-<meta name="description" content="Templte1."/>
-<meta charset="UTF-8"> 
-
-<link href='assets/css/resume1.css' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
-
-
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-
-<body id="top">
 <div id="cv" class="instaFade">
 	<div class="mainDetails">
 		<div id="headshot" class="quickFade">
-			
 		</div>
 		
 		<div id="name">
-		{{#each user}}
-			<h1 class="quickFade delayTwo"> {{this.name}} </h1>
-			{{/each}}
+			<h1 class="quickFade delayTwo"> {{data.user.name}} </h1>
 		</div>
+
 		<div id="contactDetails" class="quickFade delayFour">
-		{{#each user}}
 			<ul>
-				<li>{{this.email}} </li>
-				<li>{{this.github}} </li>
-				<li>{{this.phone}}</li>
-				<li>{{this.street}} {{this.rest}}</li>
+				<li>{{data.user.email}} </li>
+				<li>{{data.user.github}} </li>
+				<li>{{data.user.phone}}</li>
+				<li>{{data.user.street}} {{data.user.rest}}</li>
 			</ul>
-			{{/each}}
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -47,9 +26,7 @@
 				</div>
 				
 				<div class="sectionContent">
-				{{#each user}}
-					<p>{{this.summary}} </p>
-					{{/each}}
+					<p>{{data.user.summary}}</p>
 				</div>
 			</article>
 			<div class="clear"></div>
@@ -62,7 +39,7 @@
 			</div>
 			
 			<div class="sectionContent">
-			{{#each work}}
+			{{#each data.work}}
 				<article>
 					<h2>{{this.title}} at {{this.companyName}}</h2>
 					<p class="subDetails">{{this.years}}</p>
@@ -81,11 +58,7 @@
 			</div>
 			
 			<div class="sectionContent">
-			{{#each user}}
-				
-					{{this.skills}}
-				
-				{{/each}}
+				{{data.user.skills}}
 			</div>
 			<div class="clear"></div>
 		</section>
@@ -97,7 +70,7 @@
 			</div>
 			
 			<div class="sectionContent">
-			{{#each education}}
+			{{#each data.education}}
 				<article>
 					<h2>{{this.schoolName}}</h2>
 					<p class="subDetails">{{this.location}} {{this.years}}</p>
@@ -108,6 +81,5 @@
 			</div>
 			<div class="clear"></div>
 		</section>
-		
 	</div>
 </div>

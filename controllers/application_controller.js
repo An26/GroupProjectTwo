@@ -15,10 +15,10 @@ var projectData = {};
 
 
 router.get('/', function(req, res) {
+
 	if(req.session.loggedin) {
-		var info = req.session.email;
-		console.log('THIS!', info);
-		res.render('template', {loggedin: info});
+		res.render('template');
+		userEmail = req.session.email;
 	} else {
     	res.redirect('/signin?e=1');
 	}
@@ -138,30 +138,37 @@ router.get('/resume/work',function(req,res){
 
 router.get('/preview/1',function(req,res){
 	//jquery dynamically change the html
-	var userID = 0;
 	models.user.findOne({where:{email:userEmail}})
 	.then(function(user){
 	userData = user;
-	userID = user.id;
-	})
-		.then(function(result){
-		models.education.findAll({where:{userId:userID}})
+	models.education.findAll({where:{userId:user.id}})
+	.then(function(education){
+		educationData = education;
+		models.work.findAll({where:{userId:user.id}})
+		.then(function(work){
+			workData = work;
+			models.project.findAll({where:{userId:user.id}})
+			.then(function(project){
+				projectData = project;
+			}).then(function(result){
+				var data = {
+					user:userData.get({plain: true}),
+					education:educationData,
+					project:projectData,
+					work:workData
+				}
+				console.log(data.user);
+				res.render('resume1', {
+					layout: 'resume1',
+					data: data
+				});
+			})
 		})
-		.then(function(education){
-			models.work.findAll({where:{userId:userID}})
-			educationData = education;
-			})
-			.then(function(work){
-				models.project.findAll({where:{userId:userID}})
-				workData = work;
-			})
-				.then(function(project){
-					projectData = project;
-					var data = {user:userData,education:educationData,project:projectData,work:workData}
-					res.render('resume1',data);
-			})
 	})
+})
+	
 
+});
 router.get('/preview/2',function(req,res){
 	res.render(resume2);
 });
