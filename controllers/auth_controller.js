@@ -9,7 +9,7 @@ router.get('/signin', function(req, res) {
     if(req.query.e) {
         switch(req.query.e) {
             case '1':
-                var e = 'Password or Userame is invalid';
+                var e = 'Password or Username is invalid';
                 break;  
         }
     }

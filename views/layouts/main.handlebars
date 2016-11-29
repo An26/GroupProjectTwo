@@ -1,3 +1,5 @@
+<!-- how to set up handle bars to show and hide things using and if/then statement... -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +10,9 @@
     <meta name="author" content="">
 
     <title>Landing Page - Start Bootstrap Theme</title>
+
+    <!-- reset CSS page -->
+    <link href="/assets/css/reset.css" rel="stylesheet">
 
     <!-- Bootstrap Core CSS -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +40,14 @@
                 <a class="navbar-brand topnav" href="/"><img src="/assets/images/ResMeOG.png" class='resMeBrand'></a>
             </div>
         </div>
+        {{#if loggedin}}
+            <div class="userLogin">
+                Hi, {{ loggedin }}
+                <form action="/signin" method="POST">
+                    <button>Log Out</button>
+                </form>
+            </div>
+        {{/if}}
     </nav>
 
 	{{{ body }}}

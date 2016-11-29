@@ -12,8 +12,9 @@ var userEmail = '';
 router.get('/', function(req, res) {
 
 	if(req.session.loggedin) {
-		res.render('template');
-		userEmail = req.session.email;
+		var info = req.body.email //email is undefined
+		console.log("this one!! " + info); //testing purposes -an
+		res.render('template', {loggedin: info} );
 	} else {
     	res.redirect('/signin?e=1');
 	}
@@ -22,7 +23,7 @@ router.get('/', function(req, res) {
 router.post('/user/:template',function(req,res){
 	//get the template information
 	req.session.template = req.params.template;
-	console.log('using template '+req.session.template);
+	console.log('using template ' + req.session.template);
 	res.redirect('/resume/user');
 })
 
@@ -162,7 +163,7 @@ router.get('/resume/work',function(req,res){
 
 	var template = 'resume' + req.params.id;
 
-	res.render(template);
+	res.render('preview');
 })
 
 router.get('/preview/:id/download', function(req, res) {

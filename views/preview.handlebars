@@ -3,13 +3,14 @@
 <div class="user-container">
 	<div class="previewTempletes">
 	<div class="previewTitle">
-		<h1>Here is your personalized resume</h1>
+		<h1 class="previewHeading" align="center">Here is your personalized resume!</h1>
 	</div>
 	<div class="row">
 		<div class="preview col-lg-12">
-			<img src="assets/images/imgResHolder.png" width="250 px">
-			<p>Some information about the user's resume here.</p>
-			<button class="downloadTemplate1 btn btn-default" type="submit">Download Me!</button>
+			{{> template1}}
+			<div class="downloadButton" align="center">
+				<button class="downloadTemplate1 btn btn-default" type="submit">Download Me!</button>
+			</div>
 		</div>
 	</div> 
 	</div>

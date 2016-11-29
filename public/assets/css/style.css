@@ -87,17 +87,20 @@ h6 {
     
 }
 
+.previewTitle {
+    color: #f8f8f8;
+}
+
 .previewTempletes {
     height: 100%;
     padding-top: 10%; 
     padding-bottom: 30px;
-    text-align: center;
-    color: #f8f8f8;
     background: url(../images/landingImage.jpg) no-repeat center center;
     background-size: cover;
 }
 
 .network-name:-webkit-any-link {
+    margin-left: 20px;
   color: white;
   font-weight: bold;
 }
