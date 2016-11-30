@@ -1,0 +1,83 @@
+ <div id="page-wrap">
+    
+       
+    
+        <div id="contact-info" class="vcard">
+        
+            <!-- Microformats! -->
+        
+            <h1 class="fn">{{data.user.name}}</h1>
+        
+            <p>
+                Cell: <span class="tel">{{data.user.phone}}</span><br />
+                Email: <span class="tel">{{data.user.email}}</span><br />
+                Github: <span class="tel">{{data.user.github}}</span><br />
+                Address: <span class="tel">{{data.user.street}} {{data.user.rest}}</span><br />
+            </p>
+        </div>
+                
+        <div id="objective">
+            <p>
+                {{data.user.summary}} 
+            </p>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <dl>
+            <dd class="clear"></dd>
+            
+            <dt>Education</dt>
+            
+            <dd>
+            {{#each data.education}}
+                <h2>{{this.schoolName}} - {{this.location}} {{this.years}}</h2>
+                <p><strong>Major:</strong> {{this.major}}<br />
+                   <strong>Degree:</strong> {{this.degree}} <strong>GPA:{{this.GPA}}</strong></p>
+            {{/each}}
+            </dd>
+            
+            <dd class="clear"></dd>
+            
+        
+            <dt>Experience</dt>
+            
+            <dd>
+            {{#each data.work}}
+                <h2>{{this.companyName}} <span>{{this.title}}  - {{this.location}} - {{this.years}</span></h2>
+                <ul>
+                    <li>{{this.responsibilities}}</li>
+                    <li>{{this.duties}}</li>
+                </ul>
+    		{{/each}}
+            </dd>
+            
+            <dd class="clear"></dd>
+
+             <dt>Projects</dt>
+            <dd>
+            {{#each data.project}}
+                <h2>{{this.projectName}} <span>{{this.dates}}</span></h2>
+                <ul>
+                    <li>{{this.url}}</li>
+                    <li>{{this.description}}</li>
+                </ul>
+              {{/each}}
+            </dd>
+            
+            <dd class="clear"></dd>
+            
+            <dt>Skills</dt>
+            <dd>
+               
+                <p>{{data.user.skills}}</p>
+                
+            </dd>
+            
+            <dd class="clear"></dd>
+            
+        </dl>
+        
+        <div class="clear"></div>
+    
+    </div>

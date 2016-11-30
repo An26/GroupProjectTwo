@@ -169,12 +169,67 @@ router.get('/preview/1',function(req,res){
 	
 
 });
+
 router.get('/preview/2',function(req,res){
-	res.render(resume2);
+	models.user.findOne({where:{email:userEmail}})
+	.then(function(user){
+	userData = user;
+	models.education.findAll({where:{userId:user.id}})
+	.then(function(education){
+		educationData = education;
+		models.work.findAll({where:{userId:user.id}})
+		.then(function(work){
+			workData = work;
+			models.project.findAll({where:{userId:user.id}})
+			.then(function(project){
+				projectData = project;
+			}).then(function(result){
+				var data = {
+					user:userData.get({plain: true}),
+					education:educationData,
+					project:projectData,
+					work:workData
+				}
+				console.log(data.user);
+				res.render('resume2', {
+					layout: 'resume2',
+					data: data
+				});
+			})
+		})
+	})
+})
 });
+
  router.get('/preview/3',function(req,res){
- 	//jquery dynamically change the html
-	res.render(resume3);
+	models.user.findOne({where:{email:userEmail}})
+	.then(function(user){
+	userData = user;
+	models.education.findAll({where:{userId:user.id}})
+	.then(function(education){
+		educationData = education;
+		models.work.findAll({where:{userId:user.id}})
+		.then(function(work){
+			workData = work;
+			models.project.findAll({where:{userId:user.id}})
+			.then(function(project){
+				projectData = project;
+			}).then(function(result){
+				var data = {
+					user:userData.get({plain: true}),
+					education:educationData,
+					project:projectData,
+					work:workData
+				}
+				console.log(data.user);
+				res.render('resume3', {
+					layout: 'resume3',
+					data: data
+				});
+			})
+		})
+	})
+})
 });
 
 router.get('/preview/:id/download', function(req, res) {

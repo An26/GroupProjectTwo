@@ -1,0 +1,101 @@
+<div id="doc2" class="yui-t7">
+	<div id="inner">
+	
+		<div id="hd">
+			<div class="yui-gc">
+				<div class="yui-u first">
+					<h1>{{data.user.name}}</h1>
+					<h2>{{data.user.github}}</h2>
+				</div>
+
+				<div class="yui-u">
+					<div class="contact-info">
+						<h3>{{data.user.email}}</h3>
+						<h3>{{data.user.phone}}</h3>
+						<h3>{{data.user.street}} {{data.user.rest}}</h3>
+					</div><!--// .contact-info -->
+				</div>
+			</div><!--// .yui-gc -->
+		</div><!--// hd -->
+
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Summary</h2>
+						</div>
+						<div class="yui-u">
+							<p class="enlarge">
+								{{data.user.summary}} 
+							</p>
+						</div>
+					</div><!--// .yui-gf -->
+
+		<div class="yui-gf last">
+						<div class="yui-u first">
+							<h2>Education</h2>
+						</div>
+						{{#each data.education}}
+						<div class="yui-u">
+							<h2>{{this.schoolName}} - {{this.location}} {{this.years}}</h2>
+							<h3>{{this.major}} {{this.degree}}; <strong>{{this.GPA}} GPA</strong> </h3>
+						</div>
+						{{/each}}
+					</div><!--// .yui-gf -->
+
+<div class="yui-gf">
+	
+						<div class="yui-u first">
+							<h2>Experience</h2>
+						</div><!--// .yui-u -->
+
+						<div class="yui-u">
+						{{#each data.work}}
+							<div class="job">
+								<h2>{{this.companyName}}</h2>
+								<h3>{{this.title}}</h3>
+								<h4>{{this.years}}</h4>
+								<p>{{this.responsibilities}}</p>
+								<p>{{this.duties}}</p>
+							</div>
+							{{/each}}
+
+
+						</div><!--// .yui-u -->
+					</div><!--// .yui-gf -->
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Projects</h2>
+						</div>
+						<div class="yui-u">
+						{{#each data.project}}
+								<div class="talent">
+									<h2>{{this.projectName}} {{this.dates}}</h2>
+									<p>{{this.description}}	</p>
+									<p>{{this.url}} </p>
+								</div>
+								{{/each}}
+						</div>
+					</div><!--// .yui-gf -->
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Skills</h2>
+						</div>
+						<div class="yui-u">
+						<p>{{data.user.skills}}</p>
+						</div>
+					</div><!--// .yui-gf-->
+
+				</div><!--// .yui-b -->
+			</div><!--// yui-main -->
+		</div><!--// bd -->
+
+
+	</div><!-- // inner -->
+
+
+</div><!--// doc -->
