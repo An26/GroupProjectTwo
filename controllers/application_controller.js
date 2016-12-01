@@ -17,8 +17,8 @@ var projectData = {};
 router.get('/', function(req, res) {
 
 	if(req.session.loggedin) {
-		res.render('template');
 		userEmail = req.session.email;
+		res.render('template');
 	} else {
     	res.redirect('/signin?e=1');
 	}
@@ -65,13 +65,13 @@ router.post('/projects', function(req,res) {
 	models.user.findOne({where:{email:userEmail}})
 	.then(function(currentUser){
 		models.education.create({
-			schoolName:req.body.schoolName,
-			location:req.body.schoolLocation,
-			major:req.body.major,
-			degree:req.body.degree,
-			years:req.body.years,
-			GPA:req.body.gpa,
-			honors:req.body.honors,
+			schoolName:req.body.schoolName1,
+			location:req.body.schoolLocation1,
+			major:req.body.major1,
+			degree:req.body.degree1,
+			years:req.body.years1,
+			GPA:req.body.gpa1,
+			honors:req.body.honors1,
 			userId:currentUser.id
 		})
 	})
@@ -91,10 +91,10 @@ router.post('/work', function(req,res) {
 	models.user.findOne({where:{email:userEmail}})
 		.then(function(currentUser){
 			models.project.create({
-				projectName: req.body.projectName,
-				url:req.body.projectUrl,
-				dates:req.body.projectDate,
-				description:req.body.projectDescription,
+				projectName: req.body.projectName1,
+				url:req.body.projectUrl1,
+				dates:req.body.projectDate1,
+				description:req.body.projectDescription1,
 				userId:currentUser.id
 			})
 		})
@@ -113,12 +113,12 @@ router.get('/resume/work',function(req,res){
 	models.user.findOne({where:{email:userEmail}})
 	.then(function(currentUser){
 		models.work.create({
-			companyName:req.body.companyName,
-			location:req.body.companyLocation,
-			title:req.body.title,
-			years:req.body.companyYears,
-			responsibilities:req.body.responsibility,
-			duties:req.body.duties,
+			companyName:req.body.companyName1,
+			location:req.body.companyLocation1,
+			title:req.body.title1,
+			years:req.body.companyYears1,
+			responsibilities:req.body.responsibility1,
+			duties:req.body.duties1,
 			userId:currentUser.id
 		})
 	})
@@ -257,5 +257,49 @@ router.get('/preview/:id/download', function(req, res) {
 	});
 })
 
+router.post('/another/education', function(req,res) {
+	models.user.findOne({where:{email:userEmail}})
+	.then(function(currentUser){
+		models.education.create({
+			schoolName:req.body.schoolName,
+			location:req.body.schoolLocation,
+			major:req.body.major,
+			degree:req.body.degree,
+			years:req.body.years,
+			GPA:req.body.gpa,
+			honors:req.body.honors,
+			userId:currentUser.id
+		})
+	})
 
+});
+
+router.post('/another/project', function(req,res) {
+	models.user.findOne({where:{email:userEmail}})
+		.then(function(currentUser){
+			models.project.create({
+				projectName: req.body.projectName,
+				url:req.body.projectUrl,
+				dates:req.body.projectDate,
+				description:req.body.projectDescription,
+				userId:currentUser.id
+			})
+		})
+
+});
+
+router.post('/another/work', function(req,res) {
+	models.user.findOne({where:{email:userEmail}})
+	.then(function(currentUser){
+		models.work.create({
+			companyName:req.body.companyName,
+			location:req.body.companyLocation,
+			title:req.body.title,
+			years:req.body.companyYears,
+			responsibilities:req.body.responsibility,
+			duties:req.body.duties,
+			userId:currentUser.id
+		})
+	})
+});
 module.exports = router;

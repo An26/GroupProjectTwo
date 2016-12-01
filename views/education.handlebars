@@ -1,7 +1,7 @@
 <div class="user-container">
   <div class="enterInfoDivs enterEducation">
   <h4>Enter information about your education</h4>
-    <form class="UserEducation" action="/projects" method="POST">
+    <form class="UserEducation" action="/another/education" method="POST">
       School Name:
       <input type="text" name="schoolName" id="schoolName" class='form-control'><br>
       Location:
@@ -16,11 +16,26 @@
       <input type="text" name="gpa" id="gpa" class='form-control'><br>
       Honors:
       <input type="text" name="honors" id="honors" class='form-control'><br>
-     <button type="submit" class="btn btn-default">Next</button>
+     <button type="submit" class="btn btn-default" id="another">Another</button>
     </form>
     <br>  
-    <form action="/resume/education">
-        <button type="submit" class="btn btn-default">Add Another</button>
+
+    <form class="extra" action="/projects" method="POST">
+    School Name:
+      <input type="text" name="schoolName1" id="schoolName1" class='form-control'><br>
+      Location:
+      <input type="text" name="schoolLocation1" id="schoolLocation1" class='form-control'><br>
+      Major:
+      <input type="text" name="major1" id="major1" class='form-control'><br>
+      Degree:
+      <input type="text" name="degree1" id="degree1" class='form-control'><br>
+      Years Attended: 
+      <input type="text" name="years1" id="years1" class='form-control'><br>
+      GPA:
+      <input type="text" name="gpa1" id="gpa1" class='form-control'><br>
+      Honors:
+      <input type="text" name="honors1" id="honors1" class='form-control'><br>
+        <button type="submit" class="btn btn-default">Next</button>
     </form>
     <form action="/resume/user">
         <button type="submit" class="btn btn-default">Go Back</button>

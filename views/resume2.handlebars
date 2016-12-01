@@ -32,8 +32,8 @@
             <dd>
             {{#each data.education}}
                 <h2>{{this.schoolName}} - {{this.location}} {{this.years}}</h2>
-                <p><strong>Major:</strong> {{this.major}}<br />
-                   <strong>Degree:</strong> {{this.degree}} <strong>GPA:{{this.GPA}}</strong></p>
+                <p><strong>Major:</strong> {{this.major}} <strong> Degree:</strong> {{this.degree}} <br />
+                   <strong>GPA:{{this.GPA}}</strong></p>
             {{/each}}
             </dd>
             
@@ -44,11 +44,9 @@
             
             <dd>
             {{#each data.work}}
-                <h2>{{this.companyName}} <span>{{this.title}}  - {{this.location}} - {{this.years}</span></h2>
-                <ul>
-                    <li>{{this.responsibilities}}</li>
-                    <li>{{this.duties}}</li>
-                </ul>
+                <h2>{{this.companyName}} <span>{{this.title}}  - {{this.location}} - {{this.years}}</span></h2>
+                <p>{{this.responsibilities}}
+                  <br> {{this.duties}}</p>
     		{{/each}}
             </dd>
             
@@ -81,3 +79,7 @@
         <div class="clear"></div>
     
     </div>
+
+<form class="download" action="/preview/2/download" method="GET">
+ <button type="submit" class="btn btn-default">Download</button>
+ </form>

@@ -19,7 +19,6 @@
 
     <!-- Custom CSS -->
     <link href="/assets/css/style.css" rel="stylesheet">
-    <link href='assets/css/resume1.css' rel='stylesheet' type='text/css'>
 
 
     <!-- Custom Fonts -->
@@ -42,14 +41,10 @@
                 <a class="navbar-brand topnav" href="/"><img src="/assets/images/ResMeOG.png" class='resMeBrand'></a>
             </div>
         </div>
-        {{#if loggedin}}
-            <div class="userLogin">
-                Hello {{ info }},
-                <form action="/signin" method="POST">
-                    <button>Log Out</button>
-                </form>
-            </div>
-        {{/if}}
+
+<form action="/signout" method="GET">
+{{data.username}} <button type="submit" class="btn btn-default" id="logout">Log Out</button>
+</form>
     </nav>
 
 	{{{ body }}}
@@ -71,4 +66,9 @@
 <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 </body>
+<script>
+    $('#another').on('click',function(){
+        $('.extra').show();
+    })
+</script>
 </HTML>
