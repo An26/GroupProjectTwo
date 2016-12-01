@@ -105,6 +105,14 @@ h6 {
   font-weight: bold;
 }
 
+.signupLink {
+    color: #F8F8F8;
+}
+
+.topRightArea {
+    margin: 15px;
+}
+
 @media(max-width:767px) {
     .intro-message {
         padding-bottom: 10%;
