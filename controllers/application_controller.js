@@ -28,6 +28,8 @@ router.post('/user/:template',function(req,res){
 	//get the template information
 	template = req.params.template;
 	console.log('using template '+template);
+
+	console.log("body: " + req.session); //how to check all fields are filled out, if so no error...if not show error message
 	res.redirect('/resume/user');
 })
 
