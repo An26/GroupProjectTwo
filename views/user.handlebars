@@ -1,7 +1,7 @@
 <!-- this is the build USER INFO page (WILL RENAME FILE NAME TO BETTER SUIT PAGE CONTENT) -->
 <div class="user-container">
   <div class="enterInfoDivs enterUser">
-    <h4>User Info</h4>
+    <h2>Step 2: Fill out your information</h2>
     <form class="UserInfo" action="/education" method="POST">
       Name:
       <input type="text" name="fullName" id="fullName" class='form-control'><br>
@@ -20,10 +20,10 @@
       {{#if e}}
         {{> errorinput}}
       {{/if}}
-     <button type="submit" class="btn btn-default">Next</button>
+     <button type="submit" class="btn btn-default nxtBtn">Next</button>
      </form>
      <form action="/">
-       <button type="submit" class="btn btn-default">Go Back</button>
+       <button type="submit" class="btn btn-default bckBtn">Go Back</button>
      </form>
 
 

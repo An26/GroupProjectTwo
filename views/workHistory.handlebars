@@ -1,6 +1,6 @@
 <div class="user-container">
   <div class="enterInfoDivs enterWork">
-    <h4>Work History</h4>
+    <h2>Step 5: Enter your work history</h2>
     <form class="userWork" action="/anoter/work" method="POST">
       Company Name: 
       <input type="text" name="companyName" id="companyName" class='form-control'><br>
@@ -17,7 +17,7 @@
       {{#if e}}
         {{> errorinput}}
       {{/if}}
-     <button type="submit" class="btn btn-default" id="another">Add Another</button>
+     <button type="submit" class="btn btn-default" id="anotherBtn">Add Another</button>
     </form>
     <br>
 
@@ -41,10 +41,10 @@
         {{> errorinput}}
       {{/if}}
       
-      <button type="submit" class="btn btn-default">Next</button>
+      <button type="submit" class="btn btn-default nxtBtn">Next</button>
     </form>
     <form action="/resume/projects">
-      <button type="submit" class="btn btn-default">Go Back</button>
+      <button type="submit" class="btn btn-default bckBtn">Go Back</button>
     </form>
     <!-- loading bar -->
     <div class="row">

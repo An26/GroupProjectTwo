@@ -1,6 +1,6 @@
 <div class="user-container">
   <div class="enterInfoDivs enterProject">
-    <h4>Experience: Enter information about your projects or events</h4>
+    <h2>Step 4: Mention your experience/projects</h2>
     <form class="userProject" action="/another/project" method="POST">
       Project Name: 
       <input type="text" name="projectName" id="projectName" class='form-control'><br>
@@ -15,7 +15,7 @@
         {{> errorinput}}
       {{/if}}
 
-      <button type="submit" class="btn btn-default"  id="another">Add Another</button>
+     <button type="submit" class="btn btn-default" id="anotherBtn">Add Another</button>
     </form> 
 
     <form action="/work" method="POST">
@@ -34,10 +34,10 @@
         {{> errorinput}}
       {{/if}}
       
-      <button type="submit" class="btn btn-default">Next</button>
+      <button type="submit" class="btn btn-default nxtBtn">Next</button>
     </form>
     <form action="/resume/education">
-      <button type="submit" class="btn btn-default">Go Back</button>
+      <button type="submit" class="btn btn-default bckBtn">Go Back</button>
     </form>
 
     <!-- loading bar -->
