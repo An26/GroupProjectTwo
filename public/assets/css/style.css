@@ -115,11 +115,21 @@ h6 {
 
 .tempChoice{
     text-align: center;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #f8f8f8;
 }
 
 .pickTemp {
     text-align: center;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    color: #f8f8f8;
 }
+
 
 @media(max-width:767px) {
     .intro-message {
@@ -194,4 +204,13 @@ p.copyright {
 
 #logout{
     float:right;
+}
+
+.template1, .template2, .template3{
+    text-align: center;
+    margin: 20px;
+}
+
+.chooseBtn {
+    
 }
