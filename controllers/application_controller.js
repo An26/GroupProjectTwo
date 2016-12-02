@@ -31,10 +31,14 @@ router.post('/user/:template',function(req,res){
 	res.redirect('/resume/user');
 })
 
-
 router.get('/resume/user', function(req, res) {
-	//once the information is validated and next button is hit, render education
-	res.render('user');
+	console.log("querying name: " + req.query.email)
+
+	if (req.query.name === ""){
+		var e = 'Please be sure to fill out all of the availible forms.'
+	}
+
+	res.render('user', {e: e});
 })
 
 router.post('/education', function(req,res) {

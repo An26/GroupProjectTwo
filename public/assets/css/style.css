@@ -25,6 +25,10 @@ h6 {
     height: auto;
 }
 
+.loginImg {
+    margin-top: 60px;
+}
+
 .lead {
     font-size: 18px;
     font-weight: 400;
@@ -35,18 +39,19 @@ h6 {
     padding-bottom: 30px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../images/landingImage.jpg) no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../images/signInImg.jpg) no-repeat center;
     background-size: cover;
+    opacity: 1.5; 
 }
 
 .intro-header-signUp {
     padding-top: 50px; 
-     /*If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 30px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../images/signUpImage.jpg) no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../images/signUpImg.jpg) no-repeat center;
     background-size: cover;
+    background-position: 0% 0%;
 }
 
 .intro-message {
@@ -82,7 +87,7 @@ h6 {
     padding-bottom: 30px;
     text-align: center;
     color: #f8f8f8;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/buildRes.jpg) no-repeat center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/fillOutImg.jpg) no-repeat center;
     background-size: cover;
     
 }
@@ -95,7 +100,7 @@ h6 {
     height: 100%;
     padding-top: 10%; 
     padding-bottom: 30px;
-    background: url(../images/landingImage.jpg) no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/fillOutImg.jpg) no-repeat center;
     background-size: cover;
 }
 
@@ -104,6 +109,47 @@ h6 {
   color: white;
   font-weight: bold;
 }
+
+.signupLink {
+    color: #F8F8F8;
+}
+
+.topRightArea {
+    margin: 15px;
+}
+
+.tempChoice{
+    text-align: center;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #f8f8f8;
+}
+
+.pickTemp {
+    text-align: center;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    color: #f8f8f8;
+}
+
+.nxtBtn {
+    margin: 20px;
+}
+
+.bckBtn {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#anotherBtn {
+    margin-top: 20px;
+    /*margin-bottom: -20px;*/
+}
+
 
 @media(max-width:767px) {
     .intro-message {
@@ -179,3 +225,9 @@ p.copyright {
 #logout{
     float:right;
 }
+
+.template1, .template2, .template3{
+    text-align: center;
+    margin: 20px;
+}
+

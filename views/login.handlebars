@@ -1,8 +1,5 @@
 <!-- THIS IS THE LANDING PAGE/LOGIN/SIGNIN -->
 
-{{#if e}}
-    Error logging in: {{ e }}
-{{/if}}
 <a name="about"></a>
 <div class="intro-header-login">
     <div class="container">
@@ -18,10 +15,15 @@
 			                      Email: <input type="email" name='email' class='form-control' placeholder="email@someplace.com">
 			                      Password: <input type="password" name='password' class='form-control' placeholder="Password">
                       </div>
+
+                        {{#if e}}
+                            {{> errorinput}}
+                        {{/if}}
+                        
                       <div class="list-inline row" align="center">
                         <button type="submit" class="btn btn-default loginBtn">Login</button>
                         <br>
-                        <a href="/signup"><span class="network-name">Sign up for an account</span></a>
+                        <a href="/signup" class="signupLink"><span class="network-name">Sign up for an account</span></a>
                       </div>
                     </form>
                 </div>
@@ -45,7 +47,7 @@
                 
             </div>
             <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                <img class="img-responsive" src="/assets/images/ipad.png">
+                <img class="img-responsive loginImg" src="/assets/images/imgResHolder.png" width="350" align="center">
             </div>
         </div>
     </div>
