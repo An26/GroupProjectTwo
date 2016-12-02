@@ -113,6 +113,14 @@ h6 {
     margin: 15px;
 }
 
+.tempChoice{
+    text-align: center;
+}
+
+.pickTemp {
+    text-align: center;
+}
+
 @media(max-width:767px) {
     .intro-message {
         padding-bottom: 10%;

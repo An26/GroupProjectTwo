@@ -14,6 +14,9 @@
       <input type="text" name="responsibility" id="responsibility" class='form-control'><br>
       Duties:
       <input type="text" name="duties" id="duties" class='form-control'><br>
+      {{#if e}}
+        {{> errorinput}}
+      {{/if}}
      <button type="submit" class="btn btn-default" id="another">Add Another</button>
     </form>
     <br>
@@ -33,6 +36,11 @@
       Duties:
       <input type="text" name="duties1" id="duties1" class='form-control'><br>
       </div>
+
+      {{#if e}}
+        {{> errorinput}}
+      {{/if}}
+      
       <button type="submit" class="btn btn-default">Next</button>
     </form>
     <form action="/resume/projects">
