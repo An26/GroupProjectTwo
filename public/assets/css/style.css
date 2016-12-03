@@ -48,6 +48,7 @@ h6 {
     padding-top: 50px; 
     padding-bottom: 30px;
     text-align: center;
+    height: auto;
     color: #f8f8f8;
     background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url(../images/signUpImg.jpg) no-repeat center;
     background-size: cover;
@@ -116,6 +117,8 @@ h6 {
 
 .topRightArea {
     margin: 15px;
+    float: left;
+
 }
 
 .tempChoice{
@@ -154,6 +157,10 @@ h6 {
     text-align: center;
 }
 
+.logoutBtn {
+    float: right;
+    margin: 15px;
+}
 
 @media(max-width:767px) {
     .intro-message {
