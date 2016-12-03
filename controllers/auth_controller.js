@@ -13,7 +13,6 @@ router.get('/signin', function(req, res) {
                 break;  
         }
     }
-    
     res.render('login', { e: e });
 });
 
@@ -79,7 +78,8 @@ router.post('/signup', function(req, res) {
                         password: hash
                     }).then( function() {
                         req.session.loggedin = true;
-                        req.session.username = req.params.username;
+                        req.session.username = req.body.username;
+                        req.session.email = req.body.email;
                         res.redirect('/');
                     });
                 });

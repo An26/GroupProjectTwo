@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
 		userEmail = req.session.email;
 		res.render('template');
 	} else {
-    	res.redirect('/signin?e=1');
+    	res.redirect('/signin');
 	}
 });
 
