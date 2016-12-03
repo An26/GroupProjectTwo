@@ -41,9 +41,14 @@
                 <div class="navbar-header col-lg-8 col-md-8 col-sm-12">
                     <a class="navbar-brand topnav" href="/"><img src="/assets/images/ResMeOG.png" class='resMeBrand'></a>
                 </div>
-            <div class="topRightArea col-lg-4 col-md-4 col-sm-12">
-                {{signout}}
-            </div>
+                <div  class="topRightArea col-lg-4 col-md-4 col-sm-12">
+                    <form action="/" method="GET">
+                        <div>
+                            <button type="submit" class="btn btn-default chooseBtn">Log Out</button>
+                            {{signout}}
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </nav>

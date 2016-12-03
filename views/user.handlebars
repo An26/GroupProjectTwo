@@ -4,19 +4,19 @@
     <h2>Step 2: Fill out your information</h2>
     <form class="UserInfo" action="/education" method="POST">
       Name:
-      <input type="text" name="fullName" id="fullName" class='form-control'><br>
+      <input type="text" name="fullName" id="fullName" class='form-control' placeholder="Jane Smith" required><br>
       Street Address:
-      <input type="text" name="street" id="streetAddress" class='form-control'><br>
+      <input type="text" name="street" id="streetAddress" class='form-control' placeholder="1234 Average Lane" required><br>
       City, State, Zip:
-      <input type="text" name="rest" id="restAddress" class='form-control'><br>
+      <input type="text" name="rest" id="restAddress" class='form-control' placeholder="Austin, TX 78753" required><br>
       Phone Number:
-      <input type="text" name="phoneNumber" id="phoneNumber" class='form-control'><br>
+      <input type="text" name="phoneNumber" id="phoneNumber" class='form-control' placeholder="(512) 123-1234" required><br>
       Personal Summary:
-      <input type="text" name="summary" id="summary" class='form-control'><br>
+      <input type="text" name="summary" id="summary" class='form-control' placeholder="Give a summary of your career objectives..." required><br>
       GitHub Profile:
-      <input type="text" name="gitHubUrl" id="gitHubUrl" class='form-control'><br>
+      <input type="text" name="gitHubUrl" id="gitHubUrl" class='form-control' placeholder="www.github.com/jane-smith" required><br>
       Skills:
-      <input type="text" name="skills" id="skills" class='form-control'><br>
+      <input type="text" name="skills" id="skills" class='form-control' placeholder="HTML, CSS, Node, Javascript" required><br>
       {{#if e}}
         {{> errorinput}}
       {{/if}}
