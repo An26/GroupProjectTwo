@@ -157,6 +157,10 @@ h6 {
     text-align: center;
 }
 
+.logoutBtn {
+    float: right;
+    margin: 15px;
+}
 
 @media(max-width:767px) {
     .intro-message {
