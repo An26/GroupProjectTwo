@@ -1,17 +1,32 @@
 var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
+var bcrypt = require('bcrypt-nodejs');
 var fs = require('fs');
 var pdf = require('pdfkit');
 var exphbs = require('express-handlebars');
 var pdf = require('html-pdf');
 var handlebars = require('handlebars');
 var fs = require('fs');
-//need to require pdfkit, and global variables for resume defined here
+
+var userEmail = '';
+var template = '';
+var userData = {};
+var educationData = {};
+var workData = {};
+var projectData = {};
+
 
 router.get('/', function(req, res) {
 
 	if(req.session.loggedin) {
+
+		userEmail = req.session.email;
+		if(userEmail === undefined) {
+			userEmail = signupEmail;
+		}
+		console.log(userEmail);
+
 		res.render('template');
 	} else {
     	res.redirect('/signin?e=1');
@@ -42,6 +57,7 @@ router.post('/education', function(req,res) {
 	//session variable username
 	models.user.findOne({where:{email:req.session.registerUsername}})
 	.then(function(currentUser){
+
 		currentUser.update({
 				name:req.session.name,
 				phone:req.session.phoneNumber,
@@ -50,6 +66,17 @@ router.post('/education', function(req,res) {
 				github:req.session.githubUrl,
 				summary:req.session.summary
 		})
+		console.log(currentUser);
+		currentUser.update({
+				name:req.body.fullName,
+				phone:req.body.phoneNumber,
+				street:req.body.street,
+				rest:req.body.rest,
+				github:req.body.gitHubUrl,
+				summary:req.body.summary,
+				skills:req.body.skills
+		})
+
 	})
 		res.redirect('/resume/education');
 });
@@ -70,6 +97,7 @@ router.post('/projects', function(req,res) {
 		//session variable username
 	models.user.findOne({where:{email:req.session.registerUsername}})
 	.then(function(currentUser){
+		console.log(currentUser);
 		models.education.create({
 			userId:currentUser.id,
 			schoolName:req.session.schoolName,
@@ -84,10 +112,6 @@ router.post('/projects', function(req,res) {
 	.then(function(education){
 		res.redirect('/resume/projects');
 	})
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> master
 });
 
 router.get('/resume/projects',function(req,res){
@@ -145,10 +169,6 @@ router.get('/resume/work',function(req,res){
 	})
  });
 
-//  router.get('/preview',function(req,res){
-// 	res.render('preview');
-// })
-// //generate pdf file using pdfkit
 
  router.get('/preview/:id',function(req,res){
 
@@ -156,7 +176,7 @@ router.get('/resume/work',function(req,res){
 
 	res.render(template);
 })
-//generate pdf file using pdfkit
+
 
 router.get('/preview/:id/download', function(req, res) {
 	
