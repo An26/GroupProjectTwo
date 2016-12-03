@@ -162,6 +162,9 @@ h6 {
     margin: 15px;
 }
 
+#duties, #duties1{
+    height: 80px;
+}
 @media(max-width:767px) {
     .intro-message {
         padding-bottom: 10%;
