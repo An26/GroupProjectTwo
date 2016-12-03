@@ -99,7 +99,7 @@ h6 {
 .previewTempletes {
     height: 100%;
     padding-top: 10%; 
-    padding-bottom: 30px;
+    padding-bottom: 5%;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/fillOutImg.jpg) no-repeat center;
     background-size: cover;
 }
@@ -148,6 +148,10 @@ h6 {
 #anotherBtn {
     margin-top: 20px;
     /*margin-bottom: -20px;*/
+}
+
+.tempImg {
+    text-align: center;
 }
 
 
