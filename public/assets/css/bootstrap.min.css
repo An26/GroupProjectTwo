@@ -1656,7 +1656,7 @@ pre code {
     padding-right: 15px;
     padding-left: 15px
 }
-.col-xs-1,
+/*.col-xs-1,
 .col-xs-10,
 .col-xs-11,
 .col-xs-12,
@@ -1669,7 +1669,7 @@ pre code {
 .col-xs-8,
 .col-xs-9 {
     float: left
-}
+}*/
 .col-xs-12 {
     width: 100%
 }

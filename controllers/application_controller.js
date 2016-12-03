@@ -14,9 +14,21 @@ var workData = {};
 var projectData = {};
 
 
+function showSignout(loggedin, email) {
+	if(loggedin) {
+		var html = "<p class='col-lg-2 col-md-2 col-sm-6'>Hi " + email + " <a href='/signout'>Sign Out</a></p>";
+	} else {
+		var html = "";
+	}
+
+	return new handlebars.SafeString(html);
+}
+
+
 router.get('/', function(req, res) {
 
 	if(req.session.loggedin) {
+		handlebars.registerHelper('signout',showSignout(req.session.loggedin, req.session.email));
 		userEmail = req.session.email;
 		res.render('template');
 	} else {
@@ -33,12 +45,7 @@ router.post('/user/:template',function(req,res){
 
 router.get('/resume/user', function(req, res) {
 	console.log("querying name: " + req.query.email)
-
-	if (req.query.name === ""){
-		var e = 'Please be sure to fill out all of the availible forms.'
-	}
-
-	res.render('user', {e: e});
+	res.render('user');
 })
 
 router.post('/education', function(req,res) {

@@ -2,6 +2,7 @@ var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
 var bcrypt = require('bcrypt-nodejs');
+var handlebars = require('handlebars');
 
 
 router.get('/signin', function(req, res) {
@@ -50,6 +51,7 @@ router.post('/signin', function(req, res) {
 
 
 router.get('/signout', function(req, res) {
+    handlebars.unregisterHelper('signout');
     req.session.destroy(function(err) {
         res.redirect('/')
   });
