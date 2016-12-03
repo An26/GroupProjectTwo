@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "fddx658",
+    "password": null,
     "database": "resume_builder",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -14,6 +14,6 @@
     "dialect": "mysql"
   },
   "production": {
-     "use_env_variable": "DATABASE_URL"
-  }
+    "use_env_variable": "JAWSDB_URL"
+      }
 }
