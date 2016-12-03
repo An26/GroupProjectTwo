@@ -14,27 +14,15 @@ var workData = {};
 var projectData = {};
 
 
-function showSignout(loggedin, email) {
-	if(loggedin) {
-		var html = "<p class='col-lg-2 col-md-2 col-sm-6'>Hi " + email + " <a href='/signout'>Sign Out</a></p>";
-	} else {
-		var html = "";
-	}
-
-	return new handlebars.SafeString(html);
-}
-
-
 router.get('/', function(req, res) {
-
 	if(req.session.loggedin) {
-		handlebars.registerHelper('signout',showSignout(req.session.loggedin, req.session.email));
 		userEmail = req.session.email;
 		res.render('template');
 	} else {
     	res.redirect('/signin');
 	}
 });
+
 
 router.post('/user/:template',function(req,res){
 	//get the template information
@@ -45,7 +33,12 @@ router.post('/user/:template',function(req,res){
 
 router.get('/resume/user', function(req, res) {
 	console.log("querying name: " + req.query.email)
-	res.render('user');
+
+	if (req.query.name === ""){
+		var e = 'Please be sure to fill out all of the availible forms.'
+	}
+
+	res.render('user', {e: e});
 })
 
 router.post('/education', function(req,res) {
@@ -246,12 +239,16 @@ router.get('/preview/2',function(req,res){
 router.get('/preview/:id/download', function(req, res) {
 	
 	var template = 'views/resume' + req.params.id + '.handlebars';
-
+	
 	fs.readFile(template, 'utf8', function (err, data) {
     	if(err) throw err;
     	var html = '<html><body>' + data + '</body></html>';
 
-    	var testdata = { foo: 'bar', };
+    	var testdata = {user:userData.get({plain: true}),
+					education:educationData,
+					project:projectData,
+					work:workData};
+		console.log(testdata);
     	var template = handlebars.compile(html);
 
     	var finalhtml = template(testdata);
