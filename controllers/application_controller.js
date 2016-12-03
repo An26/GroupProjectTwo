@@ -14,9 +14,21 @@ var workData = {};
 var projectData = {};
 
 
+function showSignout(loggedin, email) {
+	if(loggedin) {
+		var html = "<p class='col-lg-2 col-md-2 col-sm-6'>Hi " + email + " <a href='/signout'>Sign Out</a></p>";
+	} else {
+		var html = "";
+	}
+
+	return new handlebars.SafeString(html);
+}
+
+
 router.get('/', function(req, res) {
 
 	if(req.session.loggedin) {
+		handlebars.registerHelper('signout',showSignout(req.session.loggedin, req.session.email));
 		userEmail = req.session.email;
 		res.render('template');
 	} else {
