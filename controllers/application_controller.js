@@ -33,12 +33,7 @@ router.post('/user/:template',function(req,res){
 
 router.get('/resume/user', function(req, res) {
 	console.log("querying name: " + req.query.email)
-
-	if (req.query.name === ""){
-		var e = 'Please be sure to fill out all of the availible forms.'
-	}
-
-	res.render('user', {e: e});
+	res.render('user');
 })
 
 router.post('/education', function(req,res) {
