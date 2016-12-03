@@ -3,17 +3,17 @@
     <h2>Step 5: Enter your work history</h2>
     <form class="userWork" action="/another/work" method="POST">
       Company Name: 
-      <input type="text" name="companyName" id="companyName" class='form-control'><br>
+      <input type="text" name="companyName" id="companyName" class='form-control' placeholder="Home Away Inc." required><br>
       Location:
-      <input type="text" name="companyLocation" id="companyLocation" class='form-control'><br>
+      <input type="text" name="companyLocation" id="companyLocation" class='form-control' placeholder="City, State" required><br>
       Title:
-      <input type="text" name="title" id="title" class='form-control'><br>
+      <input type="text" name="title" id="title" class='form-control' placeholder="Entry Level Developer"><br>
       Years Worked:
-      <input type="text" name="companyYears" id="companyYears" class='form-control'><br>
+      <input type="text" name="companyYears" id="companyYears" class='form-control' placeholder="2 years"><br>
       Responsibility Summary:
-      <input type="text" name="responsibility" id="responsibility" class='form-control'><br>
+      <input type="text" name="responsibility" id="responsibility" class='form-control' placeholder="Played a role on the front-end developing team"><br>
       Duties:
-      <input type="text" name="duties" id="duties" class='form-control'><br>
+      <input type="text" name="duties" id="duties" class='form-control' placeholder="Responsible for maintaining the home page and being awesome."><br>
       {{#if e}}
         {{> errorinput}}
       {{/if}}

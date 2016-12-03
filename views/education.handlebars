@@ -3,19 +3,19 @@
   <h2>Step 3: Enter your education</h2>
     <form class="UserEducation" action="/another/education" method="POST">
       School Name:
-      <input type="text" name="schoolName" id="schoolName" class='form-control'><br>
+      <input type="text" name="schoolName" id="schoolName" class='form-control' placeholder="Universtiy of Some Place" required><br>
       Location:
-      <input type="text" name="schoolLocation" id="schoolLocation" class='form-control'><br>
+      <input type="text" name="schoolLocation" id="schoolLocation" class='form-control' placeholder="City, State"><br>
       Major:
-      <input type="text" name="major" id="major" class='form-control'><br>
+      <input type="text" name="major" id="major" class='form-control' placeholder="Computer Science"><br>
       Degree:
-      <input type="text" name="degree" id="degree" class='form-control'><br>
+      <input type="text" name="degree" id="degree" class='form-control' placeholder="Bachlor's of Science"><br>
       Years Attended: 
-      <input type="text" name="years" id="years" class='form-control'><br>
+      <input type="number" name="years" id="years" class='form-control' placeholder="4 years"><br>
       GPA:
-      <input type="text" name="gpa" id="gpa" class='form-control'><br>
+      <input type="text" name="gpa" id="gpa" class='form-control' placeholder="3.0"><br>
       Honors:
-      <input type="text" name="honors" id="honors" class='form-control'><br>
+      <input type="text" name="honors" id="honors" class='form-control' placeholder="Dean's List 2010"><br>
       {{#if e}}
         {{> errorinput}}
       {{/if}}
@@ -26,19 +26,19 @@
     <form action="/projects" method="POST">
     <div class="extra">
     School Name:
-      <input type="text" name="schoolName1" id="schoolName1" class='form-control'><br>
+      <input type="text" name="schoolName1" id="schoolName1" class='form-control' placeholder="Universtiy of Some Place" required><br>
       Location:
-      <input type="text" name="schoolLocation1" id="schoolLocation1" class='form-control'><br>
+      <input type="text" name="schoolLocation1" id="schoolLocation1" class='form-control' placeholder="City, State"><br>
       Major:
-      <input type="text" name="major1" id="major1" class='form-control'><br>
+      <input type="text" name="major1" id="major1" class='form-control' placeholder="Computer Science"><br>
       Degree:
-      <input type="text" name="degree1" id="degree1" class='form-control'><br>
+      <input type="text" name="degree1" id="degree1" class='form-control' placeholder="Bachlor's of Science"><br>
       Years Attended: 
-      <input type="text" name="years1" id="years1" class='form-control'><br>
+      <input type="text" name="years1" id="years1" class='form-control' placeholder="4 years"><br>
       GPA:
-      <input type="text" name="gpa1" id="gpa1" class='form-control'><br>
+      <input type="text" name="gpa1" id="gpa1" class='form-control' placeholder="3.0"><br>
       Honors:
-      <input type="text" name="honors1" id="honors1" class='form-control'><br>
+      <input type="text" name="honors1" id="honors1" class='form-control' placeholder="Dean's List 2010"><br>
       </div>
 
       {{#if e}}
