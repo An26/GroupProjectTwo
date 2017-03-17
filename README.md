@@ -1,6 +1,8 @@
 # ResMe
-A full-stack application that helps create resumes quickly for the entry-level developer. 
+Description: A full-stack application that helps create resumes quickly for the entry-level developer. 
 Created by: Jessica Loch (Database & Backend), Stella Wu (Backend), An Huynh (Front End)
+Motiation: Wanted to streamline the resume building process to make job searching easier for new developers. 
+Results: Application successfully creates resumes but does suffer from minimal styling issues due to the conversion of HTML code to PDF format. 
 
 ### [Demo!](https://resumeme.herokuapp.com/)
 
@@ -26,7 +28,7 @@ Created by: Jessica Loch (Database & Backend), Stella Wu (Backend), An Huynh (Fr
 * Further understanding handlebars.
 * Formatted each file in order to abide by handlebars documentation.
 
-### Further Steps:
+### Further Steps/Improvements:
 * The team would like to take this application further by adding a user's home page to further edit their resumes, or create new ones while also saving other copies in different templates.
 * The team would also like to create more templates for the user to choose from. 
 
