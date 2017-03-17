@@ -4,6 +4,8 @@ Created by: Jessica Loch (Database & Backend), Stella Wu (Backend), An Huynh (Fr
 
 ###[Demo Me!](https://resumeme.herokuapp.com/)
 
+![Landing Page](./public/assets/images/landingPage.PNG)
+
 ### How it works
 * We help you create your personalized resume quickly, and efficiently.
 * After logging in or creating an account with us, our application will help you create a resume within minutes. You can choose one of our succesfully created templates to broadcast your skills. With your information, we can build your resume. Lastly, after completion, your personalized resume can be updated, or downloaded as a PDF document.
