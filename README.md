@@ -2,7 +2,7 @@
 A full-stack application that helps create resumes quickly for the entry-level developer. 
 Created by: Jessica Loch (Database & Backend), Stella Wu (Backend), An Huynh (Front End)
 
-###[Demo Me!](https://resumeme.herokuapp.com/)
+### [Demo!](https://resumeme.herokuapp.com/)
 
 ![Landing Page](./public/assets/images/landingPage.PNG)
 
